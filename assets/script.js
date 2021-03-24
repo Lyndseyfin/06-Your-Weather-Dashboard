@@ -1,13 +1,13 @@
 const apiKey = "9155c670a3e2fe2b3cab49545e99f5ed";
-var currWeatherDiv = $("#currentWeather");
+var currWeather = $("#currentWeather");
 var forecastDiv = $("#weatherForecast");
 var citiesArray;
 
 if (localStorage.getItem("localWeather")) {
-    citiesArray = JSON.parse(localStorage.getItem("localWeather"));
-    writeSearchHistory(citiesArray);
+citiesArray = JSON.parse(localStorage.getItem("localWeather"));
+writeSearchHistory(citiesArray);
 } else {
-    citiesArray = [];
+     citiesArray = [];
 };
 
 
@@ -18,7 +18,7 @@ function returnCurrentWeather(cityName) {
         let currTime = new Date(response.dt*1000);
         let weatherIcon = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
 
-        currWeatherDiv.html(`
+        currWeather.html(`
         <h2>${response.name}, ${response.sys.country} (${currTime.getMonth()+1}/${currTime.getDate()}/${currTime.getFullYear()})<img src=${weatherIcon} height="70px"></h2>
         <p>Temperature: ${response.main.temp} &#176;F</p>
         <p>Humidity: ${response.main.humidity}%</p>
@@ -65,7 +65,7 @@ function returnUVIndex(coordinates) {
     $.get(queryURL).then(function(response){
         let currUVIndex = response.value;
         let uvSeverity = "green";
-        let textColour = "white"
+        let textColor = "white"
         //Change UV background based on severity
         //Also change text colour for readability
         if (currUVIndex >= 11) {
@@ -74,12 +74,12 @@ function returnUVIndex(coordinates) {
             uvSeverity = "red";
         } else if (currUVIndex >= 6) {
             uvSeverity = "orange";
-            textColour = "black"
+            textColor = "black"
         } else if (currUVIndex >= 3) {
             uvSeverity = "yellow";
-            textColour = "black"
+            textColor = "black"
         }
-        currWeatherDiv.append(`<p>UV Index: <span class="text-${textColour} uvPadding" style="background-color: ${uvSeverity};">${currUVIndex}</span></p>`);
+        currWeather.append(`<p>UV Index: <span class="text-${textColor} uvPadding" style="background-color: ${uvSeverity};">${currUVIndex}</span></p>`);
     })
 }
 
@@ -119,7 +119,7 @@ $("#submitCity").click(function() {
 });
 
 $("#previousSearch").click(function() {
-    let cityName = target.value;
+    let cityName = InputEvent.value;
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
 })
