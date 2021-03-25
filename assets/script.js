@@ -1,6 +1,6 @@
 const apiKey = "9155c670a3e2fe2b3cab49545e99f5ed";
-var currWeather = $("#currentWeather");
-var forecastDiv = $("#weatherForecast");
+const currWeather = $("#currentWeather");
+const forecastDiv = $("#weatherForecast");
 var citiesArray;
 
 if (localStorage.getItem("localWeather")) {
@@ -57,8 +57,7 @@ function returnWeatherForecast(cityName) {
     })
 };
 
-// The current UV index is collected at the same time as the current weather
-// by making use of the searched city's returned coordinates
+// The current UV index is collected at the same time as the current weather by making use of the searched city's returned coordinates
 function returnUVIndex(coordinates) {
     let queryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${coordinates.lat}&lon=${coordinates.lon}&APPID=${apiKey}`;
 
