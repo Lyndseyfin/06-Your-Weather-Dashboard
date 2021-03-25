@@ -9,9 +9,9 @@
 - Users city searches will be saved to local storage and display in a list below the search box
 
 ### Link to deployed application
-<a href= "">Your Weather Dashboard</a>
+<a href= "https://lyndseyfin.github.io/06-Your-Weather-Dashboard/">Your Weather Dashboard</a>
 
 #### Screenshot
-![screenshot]
+![screenshot](images/wd.png)
 
 
