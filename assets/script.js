@@ -66,7 +66,6 @@ function returnUVIndex(coordinates) {
         let uvSeverity = "green";
         let textColor = "white"
         //Change UV background based on severity
-        //Also change text colour for readability
         if (currUVIndex >= 11) {
             uvSeverity = "purple";
         } else if (currUVIndex >= 8) {
@@ -83,7 +82,7 @@ function returnUVIndex(coordinates) {
 }
 
 function createHistoryButton(cityName) {
-    // Check if the button exists in history, and if it does, exit the function
+    // Check if the button exists in history, exit if so 
     var citySearch = cityName.trim();
     var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
     if (buttonCheck.length == 1) {
@@ -106,7 +105,7 @@ function writeSearchHistory(array) {
     })
 }
 
-// Get a deafult weather search
+// Default weather 
 returnCurrentWeather("Huntington Beach");
 returnWeatherForecast("Huntington Beach");
 
@@ -122,5 +121,3 @@ $("#previousSearch").click(function() {
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
 })
-
-

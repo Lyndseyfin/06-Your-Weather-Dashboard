@@ -48,6 +48,13 @@ h1, h2 {
   padding: 10px;
 }
 
+#weatherForecast {
+  border: solid 1px rgba(0,0,0,.125);
+  border-radius: 0.3rem;
+  margin: 15px 0 15px 0;
+  padding: 10px;
+}
+
 #previousSearch {
   margin-bottom: 10px;
   max-height: 375px;
